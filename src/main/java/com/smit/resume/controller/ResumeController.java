@@ -14,7 +14,8 @@ import com.smit.resume.repository.ResumeRepository;
 import com.smit.resume.service.geminiService;
 import com.smit.resume.service.pdfservice;
 
-@CrossOrigin(origins = "https://ai-resume-frontend-z1ov.onrender.com")
+@CrossOrigin(origins = "http://localhost:4200")
+
 @RestController
 @RequestMapping("/resume")
 public class ResumeController {
