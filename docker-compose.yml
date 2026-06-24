@@ -1,0 +1,23 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: resume-postgres
+    environment:
+      POSTGRES_DB: resume
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+    ports:
+      - "5432:5432"
+
+  app:
+    build: .
+    container_name: resume-app
+    ports:
+      - "8081:8081"
+    environment:
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/resume
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 1234
+    depends_on:
+      - postgres
