@@ -11,7 +11,7 @@ import com.smit.resume.repository.ResumeRepository;
 import com.smit.resume.service.geminiService;
 import com.smit.resume.service.pdfservice;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://ai-resume-frontend-z1ov.onrender.com")
 
 @RestController
 @RequestMapping("/resume")
@@ -19,13 +19,16 @@ public class ResumeController {
 
     private final ResumeRepository repository;
     private final geminiService geminiService;
-
+    private final pdfservice pdfservice;
+    
     public ResumeController(
             ResumeRepository repository,
-            geminiService geminiService) {
+            geminiService geminiService,
+            pdfservice pdfservice) {
 
         this.repository = repository;
         this.geminiService = geminiService;
+        this.pdfservice = pdfservice;
     }
 
     @GetMapping("/all")
