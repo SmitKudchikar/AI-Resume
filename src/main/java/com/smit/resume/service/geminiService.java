@@ -12,14 +12,18 @@ import java.util.Map;
 @Service
 public class geminiService {
 
-    @Value("${gemini.api.key}")
+    @Value("${groq.api.key}")
     private String apiKey;
 
-    private static final RestTemplate restTemplate = new RestTemplate();
+    @Value("${groq.api.url}")
+    private String groqApiUrl;
+
+    private final RestTemplate restTemplate = new RestTemplate();
 
     @PostConstruct
     public void checkKey() {
-        System.out.println("Gemini API Key Loaded: " + (apiKey != null && !apiKey.isEmpty()));
+        System.out.println("Groq API Key Loaded: " +
+                (apiKey != null && !apiKey.isBlank()));
     }
 
     public String analyzeResume(String resumeText) {
@@ -50,57 +54,62 @@ public class geminiService {
                     Resume:
                     """ + resumeText;
 
-            String url =
-                    "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key="
-                            + apiKey;
+            String url = groqApiUrl;
 
             Map<String, Object> requestBody = Map.of(
-                    "contents", List.of(
+                    "model", "llama-3.3-70b-versatile",
+                    "messages", List.of(
                             Map.of(
-                                    "parts", List.of(
-                                            Map.of("text", prompt)
-                                    )
+                                    "role", "user",
+                                    "content", prompt
                             )
-                    )
+                    ),
+                    "temperature", 0.3,
+                    "max_tokens", 1000
             );
 
             HttpHeaders headers = new HttpHeaders();
+            headers.setBearerAuth(apiKey);
             headers.setContentType(MediaType.APPLICATION_JSON);
 
             HttpEntity<Map<String, Object>> entity =
                     new HttpEntity<>(requestBody, headers);
 
-            Map<String, Object> response =
-                    restTemplate.postForObject(url, entity, Map.class);
+            ResponseEntity<Map> responseEntity =
+                    restTemplate.exchange(
+                            url,
+                            HttpMethod.POST,
+                            entity,
+                            Map.class
+                    );
+
+            Map<String, Object> response = responseEntity.getBody();
 
             if (response == null) {
-                return "Error: Empty response from Gemini.";
+                return "Error: Empty response from Groq.";
             }
 
-            List<Map<String, Object>> candidates =
-                    (List<Map<String, Object>>) response.get("candidates");
+            List<Map<String, Object>> choices =
+                    (List<Map<String, Object>>) response.get("choices");
 
-            if (candidates == null || candidates.isEmpty()) {
-                return "Error: No candidates returned by Gemini.";
+            if (choices == null || choices.isEmpty()) {
+                return "Error: No choices returned by Groq.";
             }
 
-            Map<String, Object> content =
-                    (Map<String, Object>) candidates.get(0).get("content");
+            Map<String, Object> message =
+                    (Map<String, Object>) choices.get(0).get("message");
 
-            List<Map<String, Object>> parts =
-                    (List<Map<String, Object>>) content.get("parts");
-
-            if (parts == null || parts.isEmpty()) {
-                return "Error: No content returned by Gemini.";
+            if (message == null || !message.containsKey("content")) {
+                return "Error: No content returned by Groq.";
             }
 
-            return parts.get(0).get("text").toString();
+            return message.get("content").toString();
 
         } catch (Exception e) {
 
             e.printStackTrace();
 
-            return "Gemini API Error: " + e.getMessage();
+            return "Groq API Error: " + e.getMessage();
         }
     }
 }
