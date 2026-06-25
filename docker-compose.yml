@@ -15,7 +15,7 @@ services:
     ports:
       - "8081:8081"
     environment:
-      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      GROQ_API_KEY: ${GROQ_API_KEY}
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/resume
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: 1234
