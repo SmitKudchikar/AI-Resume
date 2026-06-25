@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class GeminiService {
+public class geminiService {
 
     @Value("${gemini.api.key}")
     private String apiKey;
