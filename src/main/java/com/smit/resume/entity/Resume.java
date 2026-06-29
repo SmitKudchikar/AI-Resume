@@ -22,6 +22,8 @@ private String feedback;
 
     private Integer score;
 
+    private String status;    
+
     public Long getId() {
         return id;
     }
@@ -58,11 +60,19 @@ private String feedback;
         this.uploadedAt = uploadedAt;
     }
 
-    public Integer getScore() {
-        return score;
-    }
+public Integer getScore() {
+    return score;
+}
 
-    public void setScore(Integer score) {
-        this.score = score;
-    }
+public void setScore(Integer score) {
+    this.score = score;
+}
+
+public String getStatus() {
+    return status;
+}
+
+public void setStatus(String status) {
+    this.status = status;
+}
 }

@@ -30,29 +30,29 @@ public class geminiService {
 
         try {
 
-            String prompt = """
-                    Analyze this resume and provide:
+String prompt = """
+        Analyze this resume.
 
-                    1. Resume Score (0-100)
-                    2. Strengths
-                    3. Missing Skills
-                    4. Improvement Suggestions
+        Return ONLY in this format:
 
-                    Format exactly like:
+        Resume Score: <score>
 
-                    Resume Score: <score>
+        Missing Skills:
+        - skill1
+        - skill2
+        - skill3
+        - skill4
+        - skill5
 
-                    Strengths:
-                    - point
+        Rules:
+        - Score must be between 0 and 100.
+        - Include only important missing skills.
+        - Do not add strengths.
+        - Do not add explanations.
+        - Follow the format exactly.
 
-                    Missing Skills:
-                    - point
-
-                    Improvement Suggestions:
-                    - point
-
-                    Resume:
-                    """ + resumeText;
+        Resume:
+        """ + resumeText;
 
             String url = groqApiUrl;
 
@@ -104,6 +104,8 @@ public class geminiService {
             }
 
             return message.get("content").toString();
+
+            
 
         } catch (Exception e) {
 
