@@ -38,7 +38,7 @@ public class ResumeController {
         return repository.findAll();
     }
 
-    @PostMapping("/upload")
+    @PostMapping("/analyze")
     public ResumeResponse analyzeResume(
             @RequestParam("file") MultipartFile file)
             throws Exception {
