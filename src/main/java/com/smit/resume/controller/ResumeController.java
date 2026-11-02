@@ -22,16 +22,13 @@ public class ResumeController {
 
     private final ResumeRepository repository;
     private final geminiService geminiService;
-    private final pdfservice pdfservice;
 
     public ResumeController(
             ResumeRepository repository,
-            geminiService geminiService,
-            pdfservice pdfservice) {
+            geminiService geminiService) {
 
         this.repository = repository;
         this.geminiService = geminiService;
-        this.pdfservice = pdfservice;
     }
 
     @GetMapping("/all")
