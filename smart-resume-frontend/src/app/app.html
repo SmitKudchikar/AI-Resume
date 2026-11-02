@@ -1,0 +1,85 @@
+<div class="app-container">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+
+    <div class="brand">
+      <div class="brand-icon">SR</div>
+
+      <div>
+        <h2>SmartRecruit</h2>
+        <span>AI Recruitment Platform</span>
+      </div>
+    </div>
+
+    <div class="menu-label">WORKSPACE</div>
+
+    <nav class="navigation">
+
+      <a routerLink="/dashboard"
+         routerLinkActive="active"
+         class="nav-item">
+        <span class="nav-icon">▦</span>
+        Dashboard
+      </a>
+
+      <a routerLink="/resume-form"
+         routerLinkActive="active"
+         class="nav-item">
+        <span class="nav-icon">▤</span>
+        Analyze Resume
+      </a>
+
+      <a routerLink="/assessment"
+         routerLinkActive="active"
+         class="nav-item">
+        <span class="nav-icon">☑</span>
+        Assessment
+      </a>
+
+      <a routerLink="/history"
+         routerLinkActive="active"
+         class="nav-item">
+        <span class="nav-icon">◷</span>
+        Resume History
+      </a>
+
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-avatar">SK</div>
+
+      <div class="user-details">
+        <strong>Admin</strong>
+        <span>Recruitment Manager</span>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- Main workspace -->
+  <main class="main-content">
+
+    <header class="topbar">
+
+      <div>
+        <span class="topbar-label">SMART RECRUITMENT SYSTEM</span>
+        <h3>AI-Powered Recruitment</h3>
+      </div>
+
+      <div class="topbar-right">
+        <span class="system-status">
+          <span class="status-dot"></span>
+          Application Workspace
+        </span>
+      </div>
+
+    </header>
+
+    <section class="page-content">
+      <router-outlet />
+    </section>
+
+  </main>
+
+</div>

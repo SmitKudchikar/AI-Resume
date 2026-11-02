@@ -1,0 +1,139 @@
+
+.assessment-page {
+  padding: 30px;
+  color: #172033;
+}
+
+.page-heading h1 {
+  font-size: 27px;
+  margin-bottom: 8px;
+}
+
+.page-heading p {
+  color: #7b8496;
+}
+
+.assessment-welcome {
+  margin: 28px 0;
+  padding: 35px;
+  border-radius: 14px;
+  background: #172554;
+  color: white;
+}
+
+.welcome-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #a5b4fc;
+  font-weight: 700;
+}
+
+.assessment-welcome h2 {
+  font-size: 27px;
+  margin: 15px 0;
+}
+
+.assessment-welcome p {
+  color: #d1d9ed;
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+.section-title {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.assessment-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.assessment-card {
+  background: white;
+  border: 1px solid #e8ebf0;
+  border-radius: 13px;
+  padding: 25px;
+}
+
+.assessment-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 18px;
+}
+
+.technical {
+  background: #e0e7ff;
+  color: #3730a3;
+}
+
+.aptitude {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.assessment-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #7b8496;
+}
+
+.assessment-card h3 {
+  margin: 12px 0;
+  font-size: 20px;
+}
+
+.assessment-card p {
+  color: #7b8496;
+  line-height: 1.6;
+  min-height: 50px;
+}
+
+.assessment-info {
+  display: flex;
+  gap: 20px;
+  padding: 18px 0;
+  color: #566176;
+  font-size: 13px;
+}
+
+.start-btn {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 8px;
+  background: #172554;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.start-btn:hover {
+  background: #253d80;
+}
+
+.assessment-note {
+  margin-top: 25px;
+  padding: 22px;
+  background: white;
+  border: 1px solid #e8ebf0;
+  border-radius: 12px;
+}
+
+.assessment-note li {
+  margin: 10px 0;
+  color: #687386;
+}
+
+@media (max-width: 768px) {
+  .assessment-grid {
+    grid-template-columns: 1fr;
+  }
+}

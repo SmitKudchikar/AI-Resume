@@ -1,0 +1,89 @@
+
+.eligibility-section {
+  margin-top: 28px;
+  padding: 25px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+}
+
+.eligibility-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.eligibility-header h2 {
+  color: #172554;
+  margin-bottom: 6px;
+}
+
+.eligibility-header p {
+  color: #64748b;
+}
+
+.threshold {
+  background: #eff6ff;
+  color: #1d4ed8;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.eligibility-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.eligibility-item {
+  padding: 18px;
+  background: #f8fafc;
+  border-radius: 10px;
+}
+
+.eligibility-item span {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.eligibility-item h1 {
+  color: #172554;
+  font-size: 34px;
+  margin-top: 12px;
+}
+
+.eligibility-item h1 small {
+  font-size: 16px;
+  color: #64748b;
+}
+
+.eligibility-item h2 {
+  margin-top: 14px;
+  font-size: 19px;
+}
+
+.qualified,
+.access-granted {
+  color: #15803d;
+}
+
+.not-qualified,
+.access-locked {
+  color: #dc2626;
+}
+
+.eligibility-note {
+  margin-top: 20px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+@media (max-width: 700px) {
+  .eligibility-details {
+    grid-template-columns: 1fr;
+  }
+}

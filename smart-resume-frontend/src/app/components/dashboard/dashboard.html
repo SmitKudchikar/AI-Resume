@@ -1,0 +1,95 @@
+
+<div class="dashboard">
+
+  <div class="welcome-section">
+    <div>
+      <h1>Dashboard Overview</h1>
+      <p>Welcome to your AI-powered recruitment workspace.</p>
+    </div>
+
+    <a routerLink="/resume-form" class="primary-button">
+      + Analyze Resume
+    </a>
+  </div>
+
+  <!-- Dashboard Statistics -->
+  <div class="stats-grid">
+
+    <div class="stat-card">
+      <div class="stat-icon blue">📄</div>
+      <p>Total Resumes</p>
+      <h2>{{ totalResumes }}</h2>
+      <span>Resumes analyzed</span>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-icon green">✓</div>
+      <p>Qualified Candidates</p>
+      <h2>{{ qualifiedCandidates }}</h2>
+      <span>Score 70 or above</span>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-icon orange">!</div>
+      <p>Needs Improvement</p>
+      <h2>{{ totalResumes - qualifiedCandidates }}</h2>
+      <span>Not qualified candidates</span>
+    </div>
+
+  </div>
+
+
+<!-- Latest Candidate Result -->
+<div class="latest-result-card">
+
+  <div class="latest-result-header">
+    <div>
+      <h2>Latest Resume Evaluation</h2>
+      <p>Candidate's AI evaluation result</p>
+    </div>
+    <span class="result-indicator">AI Evaluated</span>
+  </div>
+
+  <div class="latest-result-grid">
+
+    <div class="latest-result-item">
+      <p>Resume Score</p>
+      <h1>{{ latestResumeScore !== null ? latestResumeScore : 'N/A' }}<small>/100</small></h1>
+      <div class="score-track">
+        <div
+          class="score-progress"
+          [style.width.%]="latestResumeScore ?? 0">
+        </div>
+      </div>
+    </div>
+
+    <div class="latest-result-item">
+      <p>Eligibility Status</p>
+
+      @if (latestEligibility === 'QUALIFIED') {
+        <h2 class="qualified">QUALIFIED</h2>
+      } @else if (latestEligibility === 'NOT_QUALIFIED') {
+        <h2 class="not-qualified">NOT QUALIFIED</h2>
+      } @else {
+        <h2>{{ latestEligibility }}</h2>
+      }
+    </div>
+
+    <div class="latest-result-item">
+      <p>Assessment Access</p>
+
+      <h2 [class.access-granted]="assessmentAccess === 'AVAILABLE'"
+          [class.access-locked]="assessmentAccess === 'LOCKED'">
+        {{ assessmentAccess }}
+      </h2>
+    </div>
+
+  </div>
+
+  <p class="result-note">
+    Candidates require a minimum resume score of 75 to qualify for assessment.
+  </p>
+
+</div>
+
+
