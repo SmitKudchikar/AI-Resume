@@ -14,7 +14,7 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("https://smart-resume-backend-jr15.onrender.com")
+                        .allowedOrigins("https://ai-front-liard.vercel.app/resume-form")
                         .allowedMethods("*")
                         .allowedHeaders("*");
             }
