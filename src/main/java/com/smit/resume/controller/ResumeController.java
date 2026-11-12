@@ -14,7 +14,7 @@ import com.smit.resume.repository.ResumeRepository;
 import com.smit.resume.service.geminiService;
 import com.smit.resume.service.pdfservice;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://smart-resume-backend-jr15.onrender.com")
 
 @RestController
 @RequestMapping("/resume")
